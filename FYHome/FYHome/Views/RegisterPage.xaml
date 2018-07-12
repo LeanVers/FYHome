@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FYHome.Views.RegisterPage"
+             BackgroundColor="Lavender">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Label Text="Cadastre-se" FontSize="Large" TextColor="#551A8B" FontAttributes="Bold"/>
+                
+                <Label Text="Nome:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding Name}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Email:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding Email}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Data de Nascimento:" TextColor="#551A8B" FontAttributes="Bold"/>
+                
+                <DatePicker 
+                    BackgroundColor="Lavender"
+                    TextColor="#551A8B"
+                    Format="dd/MM/yyyy"
+                    MinimumDate="01/01/1901"
+                    Date="{Binding Birthday}"/>               
+
+                <Label Text="CPF:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding CPF}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Telefone:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding Phone}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Senha:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding PassPhrase}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Confirmar Senha:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding ConfirmPassPhrase}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Button BackgroundColor="#551A8B" TextColor="Lavender" Text="Cadastrar" Command="{Binding RegisterUserCommand}" WidthRequest="200"/>
+
+                <Label Text="{Binding Message}" TextColor="#551A8B" />
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

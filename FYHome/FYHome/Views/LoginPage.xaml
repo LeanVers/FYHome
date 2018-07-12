@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FYHome.Views.LoginPage"
+             BackgroundColor="Lavender">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand">
+                <Image Source="fyhouseicon.png" />
+                <Label Text="FYHouse" FontSize="Large" TextColor="#551A8B" />
+            </StackLayout>
+            <StackLayout
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand">
+                <Label Text="Email:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding Email}" BackgroundColor="Lavender" TextColor="#551A8B" />
+                
+                <Label Text="Senha:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding PassPhrase}" IsPassword="True" BackgroundColor="Lavender" TextColor="#551A8B" />
+                
+                <Button BackgroundColor="#551A8B" TextColor="Lavender" Text="Acessar" Command="{Binding LoginCommand}" WidthRequest="200"/>
+                
+                <Label Text="{Binding Message}" TextColor="Black" />
+
+                <Button BackgroundColor="#551A8B" TextColor="Lavender" Text="Cadastrar" Command="{Binding RegisterCommand}" WidthRequest="200"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
