@@ -4,12 +4,7 @@
              x:Class="FYHome.Views.ItemsPage"
              x:Name="BrowseItemsPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddItem_Clicked">
-            <ToolbarItem.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="UWP" Value="add.png"/>
-                </OnPlatform>
-            </ToolbarItem.Icon>
+        <ToolbarItem Text="Pesquisar" Clicked="SearchResidencialProperty">
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>

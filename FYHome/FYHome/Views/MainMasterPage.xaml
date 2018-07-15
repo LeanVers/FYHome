@@ -4,13 +4,16 @@
              x:Class="FYHome.Views.MainMasterPage"
              xmlns:pages="clr-namespace:FYHome.Views">
     <MasterDetailPage.Master>
-        <ContentPage Title="Menu">
+        <ContentPage Title="Menu" BackgroundColor="#551A8B">
             <ScrollView>
                 <StackLayout>
-                    <!--<Button Text="Activity Indicator" Clicked="GoActivityIndicatorPage" />
-                    <Button Text="Progress Bar" Clicked="GoProgressBarPage" />
-                    <Button Text="BoxView" Clicked="GoBoxViewPage" />
-                    <Button Text="Label" Clicked="GoLabelPage" />-->
+                    <Label HorizontalOptions="CenterAndExpand" Text="Menu" FontSize="24" TextColor="#B47EE7" FontAttributes="Bold"/>
+                    <Button BackgroundColor="#B47EE7" TextColor="Lavender" Text="Anunciar" Clicked="GoAnnouncePage" />
+                    <Button BackgroundColor="#B47EE7" TextColor="Lavender" Text="Meus Anúncios" Clicked="GoMyAdsPage" />
+                    <Button BackgroundColor="#B47EE7" TextColor="Lavender" Text="Favoritos" Clicked="GoFavoritePage" />
+                    <Button BackgroundColor="#B47EE7" TextColor="Lavender" Text="Pesquisa Salva" Clicked="GoSavedSearchPage" />
+                    <Button BackgroundColor="#B47EE7" TextColor="Lavender" Text="Perfil" Clicked="GoProfilePage" />
+                    <Button BackgroundColor="#B47EE7" TextColor="Lavender" Text="Sobre" Clicked="GoAboutPage" />
                 </StackLayout>
             </ScrollView>
         </ContentPage>

@@ -29,9 +29,9 @@ namespace FYHome.Views
             await Navigation.PushModalAsync(new NavigationPage(new DetailResidentialPropertyPage((ResidencialProperty)args.SelectedItem)) {Title = "Detalhes do Imóvel", BarBackgroundColor = Color.FromHex("#551A8B"), BarTextColor = Color.Lavender });
         }
 
-        async void AddItem_Clicked(object sender, EventArgs e)
+        async void SearchResidencialProperty(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
+            await Navigation.PushModalAsync(new NavigationPage(new SearchPage()) { Title = "Pesquisar Imóvel", BarBackgroundColor = Color.FromHex("#551A8B"), BarTextColor = Color.Lavender });
         }
     }
 }

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FYHome.Views.Announce.GeneralInfoAnnouncePage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Label Text="Informações do Imóvel" TextColor="#551A8B" FontAttributes="Bold" FontSize="24"/>
+
+                <Label Text="Descrição:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding ResProp.Description}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Numero de Quartos:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding ResProp.Rooms}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Numero de Vagas:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding ResProp.ParkingSpaces}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Area (m²):" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding ResProp.Area}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Informações Adicionais:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding ResProp.AdditionalInfo}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Preço:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding ResProp.SalePrice}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Tipo Imóvel:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Picker BackgroundColor="Lavender" TextColor="#551A8B" SelectedIndex="{Binding TypeResProp.TypeResidencialPropertyId}" SelectedItem="{Binding TypeResProp.Description}">
+                    <Picker.Items>
+                        <x:String>Casa</x:String>
+                        <x:String>Apartamento</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Button BackgroundColor="#551A8B" TextColor="Lavender" Text="Cadastrar" Command="{Binding RegisterResPropCommand}" WidthRequest="200"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

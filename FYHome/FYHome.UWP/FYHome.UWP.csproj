@@ -105,9 +105,9 @@
   <ItemGroup>
     <Content Include="fyhouseicon.png" />
     <Content Include="house1.png" />
-    <Content Include="house2.jpg" />
-    <Content Include="house3.jpg" />
-    <Content Include="house4.jpg" />
+    <Content Include="house2.png" />
+    <Content Include="house3.png" />
+    <Content Include="house4.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />

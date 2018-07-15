@@ -36,5 +36,35 @@ namespace FYHome.Services
                 return null;
             }
         }
+
+        public static ResidencialProperty PostResidencialProperty(ResidencialProperty resProp)
+        {
+            var URL = "https://localhost:44302/api/ResidencialProperties/PostAsync";
+
+            FormUrlEncodedContent param = new FormUrlEncodedContent(new[] {
+                new KeyValuePair<string,string>("rooms", resProp.Rooms.ToString()),
+                new KeyValuePair<string,string>("parkingSpaces", resProp.ParkingSpaces.ToString()),
+                new KeyValuePair<string,string>("area", resProp.Area.ToString()),
+                new KeyValuePair<string,string>("additionalInfo", resProp.AdditionalInfo),
+                new KeyValuePair<string,string>("salePrice", resProp.SalePrice.ToString()),
+                new KeyValuePair<string,string>("description", resProp.Description),
+                new KeyValuePair<string, string>("addressId", resProp.AddressId.ToString()),
+                new KeyValuePair<string, string>("typeResidencialPropertyId", resProp.TypeResidencialPropertyId.ToString()),
+                new KeyValuePair<string, string>("personId", resProp.PersonId.ToString())
+            });
+
+            HttpClient request = new HttpClient();
+
+            HttpResponseMessage response = request.PostAsync(URL, param).GetAwaiter().GetResult();
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var residProp = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+
+                return JsonConvert.DeserializeObject<ResidencialProperty>(residProp);
+            }
+
+            return null;
+        }
     }
 }

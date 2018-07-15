@@ -18,10 +18,10 @@
                 <Entry Text="{Binding Birthday}" BackgroundColor="Lavender" TextColor="#551A8B" />
 
                 <Label Text="CPF:" TextColor="#551A8B" FontAttributes="Bold"/>
-                <Entry Text="{Binding CPF}" BackgroundColor="Lavender" TextColor="#551A8B" />
+                <Entry Text="{Binding CPF}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
 
                 <Label Text="Telefone:" TextColor="#551A8B" FontAttributes="Bold"/>
-                <Entry Text="{Binding Phone}" BackgroundColor="Lavender" TextColor="#551A8B" />
+                <Entry Text="{Binding Phone}" Keyboard="Telephone" BackgroundColor="Lavender" TextColor="#551A8B" />
 
                 <Label Text="Senha:" TextColor="#551A8B" FontAttributes="Bold"/>
                 <Entry Text="{Binding PassPhrase}" BackgroundColor="Lavender" TextColor="#551A8B" />

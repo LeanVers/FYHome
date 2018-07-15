@@ -147,15 +147,15 @@
     <BundleResource Include="Resources\fyhouseicon.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\house4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\house3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\house2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\house1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\house4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\house3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\house2.png" />
   </ItemGroup>
 </Project>

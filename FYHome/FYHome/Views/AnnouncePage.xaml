@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FYHome.Views.DetailResidentialPropertyPage"
-            BarBackgroundColor="#551A8B" BarTextColor="Lavender" Title="Detalhes do Imóvel">
+             x:Class="FYHome.Views.AnnouncePage"
+            BarBackgroundColor="#551A8B" BarTextColor="Lavender" Title="Anunciar Imóvel">
   <!--Pages can be added as references or inline-->
-  
 </TabbedPage>
