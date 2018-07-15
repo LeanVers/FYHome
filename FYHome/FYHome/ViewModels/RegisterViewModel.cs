@@ -11,6 +11,8 @@ namespace FYHome.ViewModels
 {
     public class RegisterViewModel : INotifyPropertyChanged
     {
+        #region Properties
+
         private string _name;
         private string _email;
         private string _birthday;
@@ -19,6 +21,7 @@ namespace FYHome.ViewModels
         private string _passphrase;
         private string _confirmPassphrase;
         private string _message;
+        private Page page;
 
         public string Name
         {
@@ -100,20 +103,21 @@ namespace FYHome.ViewModels
             }
         }
 
-        
+        #endregion
 
         public Command RegisterUserCommand { get; set; }
 
-        public RegisterViewModel()
+        public RegisterViewModel(Page page)
         {
+            this.page = page;
             RegisterUserCommand = new Command(RegisterUser);
         }
 
-        private void RegisterUser()
+        private async void RegisterUser()
         {
             if (PassPhrase != ConfirmPassphrase)
             {
-                Message = "Senhas não conferem!";
+                await page.DisplayAlert("Alerta","Senhas não conferem!","OK");
             }
             else
             {

@@ -16,7 +16,7 @@ namespace FYHome.Views
 		public RegisterPage ()
 		{
 			InitializeComponent ();
-            BindingContext = new RegisterViewModel();
+            BindingContext = new RegisterViewModel(this);
         }
     }
 }
