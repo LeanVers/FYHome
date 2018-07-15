@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FYHome.Views.DetailResidentialProperty.GeneralInfoResPropPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Label Text="Informações do Imóvel" TextColor="#551A8B" FontAttributes="Bold" FontSize="24"/>
+
+                <Label Text="Descrição:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Label Text="{Binding ResProp.Description}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Numero de Quartos:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Label Text="{Binding ResProp.Rooms}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Numero de Vagas:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Label Text="{Binding ResProp.ParkingSpaces}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Area (m²):" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Label Text="{Binding ResProp.Area}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Informações Adicionais:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Label Text="{Binding ResProp.AdditionalInfo}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Preço:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Label Text="{Binding ResProp.SalePrice, StringFormat='{0:C}'}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Informações do Vendedor" TextColor="#551A8B" FontAttributes="Bold" FontSize="24"/>
+
+                <Label Text="Nome:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Label Text="{Binding ResProp.Person.Name}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="E-mail:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Label Text="{Binding ResProp.Person.Email}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Telefone:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Label Text="{Binding ResProp.Person.Phone}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Button BackgroundColor="#551A8B" TextColor="Lavender" Text="Salvar Favorito" Command="{Binding RegisterUserCommand}" WidthRequest="200"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

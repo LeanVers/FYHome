@@ -1,8 +1,9 @@
-﻿using System;
+﻿using FYHome.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FYHomeV1.Models
+namespace FYHome.Models
 {
     public class ResidencialProperty
     {
@@ -16,5 +17,9 @@ namespace FYHomeV1.Models
         public int AddressId { get; set; }
         public int TypeResidencialPropertyId { get; set; }
         public int PersonId { get; set; }
+        public Address Address { get; set; }
+        public TypeResidencialProperty TypeResidencialProperty { get; set; }
+        public Person Person { get; set; }
+
     }
 }

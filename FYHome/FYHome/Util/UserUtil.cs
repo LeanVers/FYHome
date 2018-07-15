@@ -2,7 +2,10 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
+using System.Text.RegularExpressions;
+using Xamarin.Forms;
 
 namespace FYHome.Util
 {
@@ -23,6 +26,6 @@ namespace FYHome.Util
             {
                 return null;
             }
-        }
+        }        
     }
 }

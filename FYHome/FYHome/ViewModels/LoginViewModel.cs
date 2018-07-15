@@ -12,9 +12,11 @@ namespace FYHome.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
+        #region properties
         private string _email;
         private string _passphrase;
         private string _message;
+        private Page page;
 
 
         public string Email
@@ -45,13 +47,15 @@ namespace FYHome.ViewModels
             }
         }
 
+        #endregion
+
         public Command LoginCommand { get; set; }
         public Command RegisterCommand { get; set; }
 
-        public LoginViewModel()
+        public LoginViewModel(Page page)
         {
+            this.page = page;
             LoginCommand = new Command(Login);
-
             RegisterCommand = new Command(Register);
         }
 
@@ -71,13 +75,13 @@ namespace FYHome.ViewModels
             var userLogin = UserService.GetUser(user);
             if (userLogin == null)
             {
-                Message = "Dados de login incorretos";
+                page.DisplayAlert("Alerta!","Dados de login incorretos","OK");
             }
             else
             {
                 UserUtil.SetUserLogin(userLogin);
 
-                App.Current.MainPage = new NavigationPage(new ItemsPage());
+                App.Current.MainPage = new MainMasterPage();
 
             }
         }

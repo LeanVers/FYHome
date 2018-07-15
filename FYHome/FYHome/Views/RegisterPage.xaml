@@ -31,8 +31,6 @@
 
                 <Button BackgroundColor="#551A8B" TextColor="Lavender" Text="Cadastrar" Command="{Binding RegisterUserCommand}" WidthRequest="200"/>
 
-                <Label Text="{Binding Message}" TextColor="#551A8B" />
-
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

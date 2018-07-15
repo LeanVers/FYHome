@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FYHome.Views.DetailResidentialProperty.PhotosResPropPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Label Text="Fotos" TextColor="#551A8B" FontAttributes="Bold" FontSize="24"/>
+
+                <Image Source="house1.png" />
+
+                <Image Source="house2.png" />
+
+                <Image Source="house3.png" />
+
+                <Image Source="house4.png" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

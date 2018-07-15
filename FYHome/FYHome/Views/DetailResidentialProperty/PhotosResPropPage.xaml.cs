@@ -8,17 +8,15 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FYHome.Views
+namespace FYHome.Views.DetailResidentialProperty
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LoginPage : ContentPage
+	public partial class PhotosResPropPage : ContentPage
 	{
-		public LoginPage ()
+		public PhotosResPropPage ()
 		{
 			InitializeComponent ();
-            BindingContext = new LoginViewModel(this);
+            BindingContext = new ItemsViewModel(this);
         }
-
-        //await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
-    }
+	}
 }

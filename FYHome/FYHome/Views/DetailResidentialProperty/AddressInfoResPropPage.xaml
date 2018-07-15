@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FYHome.Views.DetailResidentialProperty.AddressInfoResPropPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Label Text="Endereço do Imóvel" TextColor="#551A8B" FontAttributes="Bold" FontSize="24"/>
+
+                <Label Text="CEP:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Label Text="{Binding Address.Cep}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Rua:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Label Text="{Binding Address.Street}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Bairro:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Label Text="{Binding Address.Neighborhood}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Cidade:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Label Text="{Binding Address.City}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Estado:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Label Text="{Binding Address.State}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Pais:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Label Text="{Binding Address.Country, StringFormat='{0:C}'}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Informações Adicionais:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Label Text="{Binding Address.AdditionalInfo, StringFormat='{0:C}'}" BackgroundColor="Lavender" TextColor="#551A8B" />
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

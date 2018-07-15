@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FYHomeV1.Models
+namespace FYHome.Models
 {
     public class Address
     {
         public int AddressId { get; set; }
-        public string CEP { get; set; }
+        public string Cep { get; set; }
         public string Street { get; set; }
         public int Number { get; set; }
         public string Neighborhood { get; set; }

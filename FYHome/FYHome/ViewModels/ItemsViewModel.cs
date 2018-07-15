@@ -2,56 +2,47 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
-
 using FYHome.Models;
 using FYHome.Views;
+using System.ComponentModel;
+using System.Collections.Generic;
+using FYHome.Services;
+using FYHome.Util;
+using System.Globalization;
 
 namespace FYHome.ViewModels
 {
-    public class ItemsViewModel : BaseViewModel
+    public class ItemsViewModel : INotifyPropertyChanged
     {
-        public ObservableCollection<Item> Items { get; set; }
-        public Command LoadItemsCommand { get; set; }
+        #region
+        private Page page;
 
-        public ItemsViewModel()
+        private List<ResidencialProperty> _resProp;
+        public List<ResidencialProperty> ResProp
         {
-            Title = "Browse";
-            Items = new ObservableCollection<Item>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-
-            MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
+            get { return _resProp; }
+            set
             {
-                var _item = item as Item;
-                Items.Add(_item);
-                await DataStore.AddItemAsync(_item);
-            });
+                _resProp = value;
+                OnPropertyChanged("ResidencialProperty");
+            }
+        }
+        #endregion
+
+        public ItemsViewModel(Page page)
+        {
+            this.page = page;
+            ResProp = ResidentialPropertyService.GetResidentialProperty();
         }
 
-        async Task ExecuteLoadItemsCommand()
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string PropertyName)
         {
-            if (IsBusy)
-                return;
-
-            IsBusy = true;
-
-            try
+            if (PropertyChanged != null)
             {
-                Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
-                {
-                    Items.Add(item);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                IsBusy = false;
+                PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
             }
         }
     }

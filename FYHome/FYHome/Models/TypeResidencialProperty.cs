@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FYHomeV1.Models
+namespace FYHome.Models
 {
     public class TypeResidencialProperty
     {

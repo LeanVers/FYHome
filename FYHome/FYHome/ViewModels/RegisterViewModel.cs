@@ -20,7 +20,6 @@ namespace FYHome.ViewModels
         private string _phone;
         private string _passphrase;
         private string _confirmPassphrase;
-        private string _message;
         private Page page;
 
         public string Name
@@ -93,15 +92,6 @@ namespace FYHome.ViewModels
             }
         }
 
-        public string Message
-        {
-            get { return _message; }
-            set
-            {
-                _message = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Message"));
-            }
-        }
 
         #endregion
 
@@ -112,6 +102,8 @@ namespace FYHome.ViewModels
             this.page = page;
             RegisterUserCommand = new Command(RegisterUser);
         }
+
+        #region Metods
 
         private async void RegisterUser()
         {
@@ -125,7 +117,7 @@ namespace FYHome.ViewModels
                 {
                     Name = Name,
                     Email = Email,
-                    BirthdayDate = DateTime.Parse(Birthday),
+                    BirthdayDate = Birthday,
                     CPF = CPF,
                     Phone = Phone,
                     Passphrase = PassPhrase
@@ -134,7 +126,7 @@ namespace FYHome.ViewModels
                 var userLogin = UserService.PostUser(user);
                 if (userLogin == null)
                 {
-                    Message = "Ocorreu um erro ao registrar";
+                    await page.DisplayAlert("Alerta", "Ocorreu um erro ao registrar!", "OK");
                 }
                 else
                 {
@@ -142,6 +134,8 @@ namespace FYHome.ViewModels
                 }
             }
         }
+
+        #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
     }
