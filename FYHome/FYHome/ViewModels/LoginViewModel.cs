@@ -72,17 +72,23 @@ namespace FYHome.ViewModels
                 Passphrase = PassPhrase
             };
 
-            var userLogin = UserService.GetUser(user);
-            if (userLogin == null)
+            if (user != null && (user.Email != null && user.Passphrase != null) && (user.Email.Trim() != "" && user.Passphrase.Trim() != ""))
             {
-                page.DisplayAlert("Alerta!","Dados de login incorretos","OK");
-            }
-            else
+                var userLogin = UserService.GetUser(user);
+                if (userLogin == null)
+                {
+                    page.DisplayAlert("Alerta!", "Dados de login incorretos", "OK");
+                }
+                else
+                {
+                    UserUtil.SetUserLogin(userLogin);
+
+                    App.Current.MainPage = new MainMasterPage();
+
+                }
+            } else
             {
-                UserUtil.SetUserLogin(userLogin);
-
-                App.Current.MainPage = new MainMasterPage();
-
+                page.DisplayAlert("Alerta!", "Dados de login incorretos", "OK");
             }
         }
 

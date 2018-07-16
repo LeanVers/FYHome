@@ -6,7 +6,7 @@
         <ScrollView>
             <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
 
-                <Label Text="Tipo Imóvel:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Label Text="Tipo Imóvel:" TextColor="#551A8B" FontAttributes="Bold" />
                 <Picker BackgroundColor="Lavender" TextColor="#551A8B" SelectedIndex="{Binding TypeResProp.TypeResidencialPropertyId}" SelectedItem="{Binding TypeResProp.Description}">
                     <Picker.Items>
                         <x:String>Casa</x:String>
