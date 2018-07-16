@@ -42,6 +42,7 @@ namespace FYHome.ViewModels.Announce
             else if (Util.UserUtil.GetAddressId() != 0)
             {
                 this.ResProp.AddressId = Util.UserUtil.GetAddressId();
+                this.ResProp.TypeResidencialPropertyId = this.TypeResProp.TypeResidencialPropertyId + 1;
 
                 var resid = ResidentialPropertyService.PostResidencialProperty(this.ResProp);
                 if (resid == null)

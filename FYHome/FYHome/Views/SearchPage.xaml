@@ -1,12 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FYHome.Views.SearchPage">
+             x:Class="FYHome.Views.SearchPage" Title="Pesquisar Imóvel">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+                <Label Text="Tipo Imóvel:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Picker BackgroundColor="Lavender" TextColor="#551A8B" SelectedIndex="{Binding TypeResProp.TypeResidencialPropertyId}" SelectedItem="{Binding TypeResProp.Description}">
+                    <Picker.Items>
+                        <x:String>Casa</x:String>
+                        <x:String>Apartamento</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label Text="Numero de Quartos:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding ResProp.Rooms}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Numero de Vagas:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding ResProp.ParkingSpaces}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Area (m²):" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding ResProp.Area}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Preço:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding ResProp.SalePrice}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="CEP:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding Address.Cep}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Button BackgroundColor="#551A8B" TextColor="Lavender" Text="Buscar CEP" Command="{Binding SearchCepCommand}" WidthRequest="200"/>
+
+                <Label Text="Bairro:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding Address.Neighborhood}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Cidade:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding Address.City}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Estado:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding Address.State}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Pais:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding Address.Country}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Button BackgroundColor="#551A8B" TextColor="Lavender" Text="Buscar" Command="{Binding SearchCommand}" WidthRequest="200"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -64,6 +64,33 @@ namespace FYHome.Services
             }
         }
 
+        public static List<ResidencialProperty> Search(Person person)
+        {
+            //https://localhost:44302/api/ResidencialProperties/GetAllAsyncById?personId=
+            var URL = "http://www.mocky.io/v2/5b4bfeee3100006300a7de72";
+
+            HttpClient request = new HttpClient();
+            HttpResponseMessage resposta = request.GetAsync(URL).GetAwaiter().GetResult();
+
+            if (resposta.StatusCode == HttpStatusCode.OK)
+            {
+                string content = resposta.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                if (content.Length > 2)
+                {
+                    List<ResidencialProperty> lista = JsonConvert.DeserializeObject<List<ResidencialProperty>>(content);
+                    return lista;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public static ResidencialProperty PostResidencialProperty(ResidencialProperty resProp)
         {
             var URL = "https://localhost:44302/api/ResidencialProperties/PostAsync";

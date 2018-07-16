@@ -22,6 +22,13 @@ namespace FYHome.Views
             BindingContext = new ItemsViewModel(this);
         }
 
+        public ItemsPage(List<ResidencialProperty> resProp)
+        {
+            InitializeComponent();
+            BindingContext = new ItemsViewModel(this, resProp);
+            
+        }
+
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             await Navigation.PushModalAsync(new NavigationPage(new DetailResidentialPropertyPage((ResidencialProperty)args.SelectedItem)) {Title = "Detalhes do Imóvel", BarBackgroundColor = Color.FromHex("#551A8B"), BarTextColor = Color.Lavender });

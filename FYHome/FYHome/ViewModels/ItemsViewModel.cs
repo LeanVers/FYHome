@@ -36,6 +36,12 @@ namespace FYHome.ViewModels
             ResProp = ResidentialPropertyService.GetResidentialProperty();
         }
 
+        public ItemsViewModel(Page page, List<ResidencialProperty> resProp)
+        {
+            this.page = page;
+            this.ResProp = resProp;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string PropertyName)
