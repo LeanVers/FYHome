@@ -16,12 +16,10 @@ namespace FYHome.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemsPage : ContentPage
     {
-        ItemsViewModel viewModel;
-
         public ItemsPage()
         {
             InitializeComponent();
-            BindingContext = viewModel = new ItemsViewModel(this);
+            BindingContext = new ItemsViewModel(this);
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)

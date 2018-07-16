@@ -1,12 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FYHome.Views.SavedSearchListPage">
+             x:Class="FYHome.Views.SavedSearchListPage" Title="Pesquisas Salvas">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Salvar Pesquisa" Clicked="ToolbarItem_ClickedAsync">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="ItemsListView" 
+                ItemsSource="{Binding RecFilter}"
+                VerticalOptions="FillAndExpand"
+                 HasUnevenRows="true"
+                 IsPullToRefreshEnabled="true"
+                 CachingStrategy="RecycleElement">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="5" Orientation="Vertical">
+                                <StackLayout  Orientation="Horizontal">
+                                    <Label Text="Número Quartos:" FontSize="16" FontAttributes="Bold" />
+                                    <Label Text="{Binding Rooms}" HorizontalTextAlignment="End" FontSize="16" />
+                                </StackLayout>
+                                <StackLayout  Orientation="Horizontal">
+                                    <Label Text="Número de Vagas:" FontSize="16" FontAttributes="Bold" />
+                                    <Label Text="{Binding ParkingSpaces}" HorizontalTextAlignment="End" FontSize="16" />
+                                </StackLayout>
+                                <StackLayout  Orientation="Horizontal">
+                                    <Label Text="Preço Mínimo:" FontSize="16" FontAttributes="Bold" />
+                                    <Label Text="{Binding SalePriceMin}" HorizontalTextAlignment="End" FontSize="16" />
+                                </StackLayout>
+                                <StackLayout  Orientation="Horizontal">
+                                    <Label Text="Preço Máximo:" FontSize="16" FontAttributes="Bold" />
+                                    <Label Text="{Binding SalePriceMax}" HorizontalTextAlignment="End" FontSize="16" />
+                                </StackLayout>
+                                <StackLayout  Orientation="Horizontal">
+                                    <Label Text="Estado:" FontSize="16" FontAttributes="Bold" />
+                                    <Label Text="{Binding State}" HorizontalTextAlignment="End" FontSize="16" />
+                                </StackLayout>
+                                <StackLayout  Orientation="Horizontal">
+                                    <Label Text="Cidade:" FontSize="16" FontAttributes="Bold" />
+                                    <Label Text="{Binding City}" HorizontalTextAlignment="End" FontSize="16" />
+                                    <Label Text=" - UF:" FontSize="16" FontAttributes="Bold" />
+                                    <Label Text="{Binding Uf}" HorizontalTextAlignment="End" FontSize="16" />
+                                </StackLayout>
+                                <StackLayout  Orientation="Horizontal">
+                                    <Label Text="Bairro:" FontSize="16" FontAttributes="Bold" />
+                                    <Label Text="{Binding Neighborhood}" HorizontalTextAlignment="End" FontSize="16" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

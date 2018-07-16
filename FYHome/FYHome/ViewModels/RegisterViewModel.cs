@@ -12,75 +12,9 @@ namespace FYHome.ViewModels
     public class RegisterViewModel : INotifyPropertyChanged
     {
         #region Properties
-
-        private string _name;
-        private string _email;
-        private string _birthday;
-        private string _cpf;
-        private string _phone;
-        private string _passphrase;
+               
         private string _confirmPassphrase;
         private Page page;
-
-        public string Name
-        {
-            get { return _name; }
-            set
-            {
-                _name = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Name"));
-            }
-        }
-
-        public string Email
-        {
-            get { return _email; }
-            set
-            {
-                _email = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Email"));
-            }
-        }
-
-        public string Birthday
-        {
-            get { return _birthday; }
-            set
-            {
-                _birthday = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Birthday"));
-            }
-        }
-
-        public string CPF
-        {
-            get { return _cpf; }
-            set
-            {
-                _cpf = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("CPF"));
-            }
-        }
-
-        public string Phone
-        {
-            get { return _phone; }
-            set
-            {
-                _phone = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Phone"));
-            }
-        }
-
-        public string PassPhrase
-        {
-            get { return _passphrase; }
-            set
-            {
-                _passphrase = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("PassPhrase"));
-            }
-        }
 
         public string ConfirmPassphrase
         {
@@ -92,6 +26,16 @@ namespace FYHome.ViewModels
             }
         }
 
+        private Person _person;
+        public Person Person
+        {
+            get { return _person; }
+            set
+            {
+                _person = value;
+                OnPropertyChanged("Person");
+            }
+        }
 
         #endregion
 
@@ -100,30 +44,54 @@ namespace FYHome.ViewModels
         public RegisterViewModel(Page page)
         {
             this.page = page;
+            this.Person = new Person();
             RegisterUserCommand = new Command(RegisterUser);
+        }
+
+        public Command UpdateUserCommand { get; set; }
+
+        public RegisterViewModel(Page page, Person person)
+        {
+            this.page = page;
+
+            this.Person = person;
+
+            UpdateUserCommand = new Command(UpdateUser);
         }
 
         #region Metods
 
         private async void RegisterUser()
         {
-            if (PassPhrase != ConfirmPassphrase)
+            if (this.Person.Passphrase != ConfirmPassphrase)
             {
                 await page.DisplayAlert("Alerta","Senhas não conferem!","OK");
             }
             else
-            {
-                var user = new Person
-                {
-                    Name = Name,
-                    Email = Email,
-                    BirthdayDate = Birthday,
-                    CPF = CPF,
-                    Phone = Phone,
-                    Passphrase = PassPhrase
-                };
+            {               
 
-                var userLogin = UserService.PostUser(user);
+                var userLogin = UserService.PostUser(this.Person);
+                if (userLogin == null)
+                {
+                    await page.DisplayAlert("Alerta", "Ocorreu um erro ao registrar!", "OK");
+                }
+                else
+                {
+                    App.Current.MainPage = new NavigationPage(new Views.LoginPage()) { };
+                }
+            }
+        }
+
+        private async void UpdateUser()
+        {
+            if (this.Person.Passphrase != ConfirmPassphrase)
+            {
+                await page.DisplayAlert("Alerta", "Senhas não conferem!", "OK");
+            }
+            else
+            {
+
+                var userLogin = UserService.PutUser(this.Person);
                 if (userLogin == null)
                 {
                     await page.DisplayAlert("Alerta", "Ocorreu um erro ao registrar!", "OK");
@@ -138,5 +106,13 @@ namespace FYHome.ViewModels
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string PropertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
+            }
+        }
     }
 }

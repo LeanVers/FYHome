@@ -51,7 +51,7 @@ namespace FYHome.ViewModels.Announce
                 else
                 {
                     await Page.DisplayAlert("Sucesso", "Cadastrado com sucesso!", "OK");
-                    App.Current.MainPage = new NavigationPage(new Views.MainMasterPage()) { };
+                    App.Current.MainPage = new NavigationPage(new Views.MainMasterPage());
                 }
             } else
             {

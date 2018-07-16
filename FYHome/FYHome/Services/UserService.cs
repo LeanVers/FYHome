@@ -61,5 +61,32 @@ namespace FYHome.Services
 
             return null;
         }
+
+        public static Person PutUser(Person user)
+        {
+            var URL = urlApi + "/api/People/PutAsync";
+
+            FormUrlEncodedContent param = new FormUrlEncodedContent(new[] {
+                new KeyValuePair<string,string>("name", user.Name),
+                new KeyValuePair<string,string>("email", user.Email),
+                new KeyValuePair<string,string>("birthdayDate", user.BirthdayDate.ToString()),
+                new KeyValuePair<string,string>("cpf", user.CPF),
+                new KeyValuePair<string,string>("phone", user.Phone),
+                new KeyValuePair<string,string>("passphrase", user.Passphrase)
+            });
+
+            HttpClient request = new HttpClient();
+
+            HttpResponseMessage response = request.PutAsync(URL, param).GetAwaiter().GetResult();
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var person = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+
+                return JsonConvert.DeserializeObject<Person>(person);
+            }
+
+            return null;
+        }
     }
 }

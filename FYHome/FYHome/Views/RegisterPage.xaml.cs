@@ -1,4 +1,5 @@
-﻿using FYHome.ViewModels;
+﻿using FYHome.Models;
+using FYHome.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,12 @@ namespace FYHome.Views
 		{
 			InitializeComponent ();
             BindingContext = new RegisterViewModel(this);
+        }
+
+        public RegisterPage(Person person)
+        {
+            InitializeComponent();
+            BindingContext = new RegisterViewModel(this, person);
         }
     }
 }

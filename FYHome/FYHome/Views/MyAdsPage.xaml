@@ -1,12 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FYHome.Views.MyAdsPage">
+             x:Class="FYHome.Views.MyAdsPage" Title="Meus Anuncios">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="ItemsListView" 
+                ItemsSource="{Binding ResProp}"
+                VerticalOptions="FillAndExpand"
+                 HasUnevenRows="true"
+                 IsPullToRefreshEnabled="true"
+                 CachingStrategy="RecycleElement"
+                 ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="5" Orientation="Vertical">
+                                <StackLayout  Orientation="Horizontal">
+                                    <Label Text="{Binding TypeResidencialProperty.Description}" Style="{DynamicResource ListItemTextStyle}" FontSize="16" FontAttributes="Bold" />
+                                    <Label Text="{Binding SalePrice, StringFormat='{0:C}'}" HorizontalTextAlignment="End" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="16" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Description}" Style="{DynamicResource ListItemTextStyle}" FontSize="12" FontAttributes="Italic"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

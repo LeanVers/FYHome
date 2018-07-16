@@ -9,27 +9,27 @@
                 <Label Text="Cadastre-se" FontSize="Large" TextColor="#551A8B" FontAttributes="Bold"/>
                 
                 <Label Text="Nome:" TextColor="#551A8B" FontAttributes="Bold"/>
-                <Entry Text="{Binding Name}" BackgroundColor="Lavender" TextColor="#551A8B" />
+                <Entry Text="{Binding Person.Name}" BackgroundColor="Lavender" TextColor="#551A8B" />
 
                 <Label Text="Email:" TextColor="#551A8B" FontAttributes="Bold"/>
-                <Entry Text="{Binding Email}" BackgroundColor="Lavender" TextColor="#551A8B" />
+                <Entry Text="{Binding Person.Email}" BackgroundColor="Lavender" TextColor="#551A8B" />
 
                 <Label Text="Data de Nascimento:" TextColor="#551A8B" FontAttributes="Bold"/>
-                <Entry Text="{Binding Birthday}" BackgroundColor="Lavender" TextColor="#551A8B" />
+                <Entry Text="{Binding Person.BirthdayDate}" BackgroundColor="Lavender" TextColor="#551A8B" />
 
                 <Label Text="CPF:" TextColor="#551A8B" FontAttributes="Bold"/>
-                <Entry Text="{Binding CPF}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
+                <Entry Text="{Binding Person.CPF}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
 
                 <Label Text="Telefone:" TextColor="#551A8B" FontAttributes="Bold"/>
-                <Entry Text="{Binding Phone}" Keyboard="Telephone" BackgroundColor="Lavender" TextColor="#551A8B" />
+                <Entry Text="{Binding Person.Phone}" Keyboard="Telephone" BackgroundColor="Lavender" TextColor="#551A8B" />
 
                 <Label Text="Senha:" TextColor="#551A8B" FontAttributes="Bold"/>
-                <Entry Text="{Binding PassPhrase}" BackgroundColor="Lavender" TextColor="#551A8B" />
+                <Entry Text="{Binding Person.Passphrase}" BackgroundColor="Lavender" TextColor="#551A8B" />
 
                 <Label Text="Confirmar Senha:" TextColor="#551A8B" FontAttributes="Bold"/>
                 <Entry Text="{Binding ConfirmPassphrase}" BackgroundColor="Lavender" TextColor="#551A8B" />
 
-                <Button BackgroundColor="#551A8B" TextColor="Lavender" Text="Cadastrar" Command="{Binding RegisterUserCommand}" WidthRequest="200"/>
+                <Button BackgroundColor="#551A8B" TextColor="Lavender" Text="Salvar" Command="{Binding RegisterUserCommand}" WidthRequest="200"/>
 
             </StackLayout>
         </ScrollView>

@@ -43,7 +43,7 @@ namespace FYHome.Views
 
         private async void GoProfilePage(object sender, EventArgs args)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ProfilePage()) { BarBackgroundColor = Color.FromHex("#551A8B"), BarTextColor = Color.Lavender });
+            await Navigation.PushModalAsync(new NavigationPage(new RegisterPage(Util.UserUtil.GetUserLogin())) { BarBackgroundColor = Color.FromHex("#551A8B"), BarTextColor = Color.Lavender });
             IsPresented = false;
         }
 

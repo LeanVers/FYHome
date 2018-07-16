@@ -40,5 +40,10 @@ namespace FYHome.Services
 
             return null;
         }
+
+        public static Address PostCpfSearch()
+        {
+            return new Address();
+        }
     }
 }

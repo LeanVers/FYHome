@@ -1,12 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FYHome.Views.SavedSearchPage">
+             x:Class="FYHome.Views.SavedSearchPage" Title="Cadastrar Pesquisa">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+                <Label Text="Numero de Quartos:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding RecFilter.Rooms}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Numero de Vagas:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding RecFilter.ParkingSpaces}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Preço Mínimo:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding RecFilter.SalePriceMin}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Preço Máximo:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding RecFilter.SalePriceMax}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Estado:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding RecFilter.State}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Cidade:" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding RecFilter.City}" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="UF" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding RecFilter.Uf}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Label Text="Bairro" TextColor="#551A8B" FontAttributes="Bold"/>
+                <Entry Text="{Binding RecFilter.Neighborhood}" Keyboard="Numeric" BackgroundColor="Lavender" TextColor="#551A8B" />
+
+                <Button BackgroundColor="#551A8B" TextColor="Lavender" Text="Cadastrar" Command="{Binding RegisterRecFilterCommand}" WidthRequest="200"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
