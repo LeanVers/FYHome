@@ -77,7 +77,7 @@ namespace FYHome.ViewModels
                 var userLogin = UserService.GetUser(user);
                 if (userLogin == null)
                 {
-                    page.DisplayAlert("Alerta!", "Dados de login incorretos", "OK");
+                    page.DisplayAlert("Alerta!", "Dados de login incorretos. Cadatsre-se no sistema ou digite dados corretos.", "OK");
                 }
                 else
                 {
@@ -88,7 +88,7 @@ namespace FYHome.ViewModels
                 }
             } else
             {
-                page.DisplayAlert("Alerta!", "Dados de login incorretos", "OK");
+                page.DisplayAlert("Alerta!", "Dados de login incorretos. Cadatsre-se no sistema ou digite dados corretos.", "OK");
             }
         }
 

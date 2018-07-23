@@ -10,6 +10,9 @@ namespace FYHome.Services
 {
     public class UserService : BaseService
     {
+        private static string Token;
+        private static string TokenTyp;
+
         public static Person GetUser(Person user)
         {
             //var URL = urlApi + "/api/People/GetPersonLogin";
@@ -21,7 +24,8 @@ namespace FYHome.Services
             });
 
             HttpClient request = new HttpClient();
-            //HttpResponseMessage response = request.PostAsync(URL, param).GetAwaiter().GetResult();
+
+            request.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue(TokenTyp, Token);
 
             HttpResponseMessage response = request.PostAsync(URL, param).GetAwaiter().GetResult();
 
